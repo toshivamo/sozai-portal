@@ -28,22 +28,23 @@ export default function IngredientsPage() {
   }, [search, selectedCategory, selectedFunction, selectedEvidence]);
 
   return (
-    <div className="bg-[#f0f2f0] min-h-screen">
+    <div className="bg-white min-h-screen">
       {/* Page Header */}
-      <div className="bg-white border-b border-[#e5e7e5]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <h1 className="text-2xl sm:text-3xl font-bold text-[#354341]">
+      <div className="border-b border-[#efefef]">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-8">
+          <p className="text-[11px] text-[#888] uppercase tracking-widest mb-2">Ingredients</p>
+          <h1 className="text-2xl sm:text-3xl font-light text-black">
             素材を探す
           </h1>
-          <p className="mt-2 text-[#8f9695]">
+          <p className="mt-2 text-[13px] text-[#888]">
             {ingredients.length}件の機能性素材から検索
           </p>
 
           {/* Search */}
-          <div className="mt-6 max-w-2xl">
-            <div className="flex items-center bg-[#f0f2f0] rounded-full overflow-hidden">
+          <div className="mt-6 max-w-md">
+            <div className="flex items-center border border-[#ddd] rounded overflow-hidden focus-within:border-black transition-colors">
               <svg
-                className="ml-4 w-5 h-5 text-[#8f9695] shrink-0"
+                className="ml-3 w-4 h-4 text-[#bbb] shrink-0"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -51,7 +52,7 @@ export default function IngredientsPage() {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth={2}
+                  strokeWidth={1.5}
                   d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                 />
               </svg>
@@ -60,30 +61,30 @@ export default function IngredientsPage() {
                 placeholder="素材名、英名、キーワードで検索..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="flex-1 px-4 py-3 text-sm bg-transparent outline-none"
+                className="flex-1 px-3 py-3 text-[13px] bg-transparent outline-none"
               />
             </div>
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 py-8">
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Sidebar Filters */}
-          <aside className="lg:w-64 shrink-0">
-            <div className="bg-white rounded-2xl border border-[#e5e7e5] p-6 space-y-6 sticky top-24">
+          <aside className="lg:w-56 shrink-0">
+            <div className="border border-[#efefef] rounded p-5 space-y-6 sticky top-24">
               {/* Category */}
               <div>
-                <h3 className="text-sm font-semibold text-[#354341] mb-3">
+                <h3 className="text-[11px] text-[#888] uppercase tracking-wider mb-3">
                   カテゴリ
                 </h3>
-                <div className="space-y-1">
+                <div className="space-y-0.5">
                   <button
                     onClick={() => setSelectedCategory("")}
-                    className={`block w-full text-left px-3 py-2 text-sm rounded-lg transition-colors ${
+                    className={`block w-full text-left px-3 py-1.5 text-[13px] rounded transition-colors ${
                       !selectedCategory
-                        ? "bg-[#f5fcfb] text-[#2aab9f] font-medium"
-                        : "text-[#8f9695] hover:bg-[#f0f2f0]"
+                        ? "bg-black text-white"
+                        : "text-[#555] hover:text-black"
                     }`}
                   >
                     すべて
@@ -92,10 +93,10 @@ export default function IngredientsPage() {
                     <button
                       key={cat}
                       onClick={() => setSelectedCategory(cat)}
-                      className={`block w-full text-left px-3 py-2 text-sm rounded-lg transition-colors ${
+                      className={`block w-full text-left px-3 py-1.5 text-[13px] rounded transition-colors ${
                         selectedCategory === cat
-                          ? "bg-[#f5fcfb] text-[#2aab9f] font-medium"
-                          : "text-[#8f9695] hover:bg-[#f0f2f0]"
+                          ? "bg-black text-white"
+                          : "text-[#555] hover:text-black"
                       }`}
                     >
                       {cat}
@@ -106,18 +107,18 @@ export default function IngredientsPage() {
 
               {/* Evidence Level */}
               <div>
-                <h3 className="text-sm font-semibold text-[#354341] mb-3">
+                <h3 className="text-[11px] text-[#888] uppercase tracking-wider mb-3">
                   エビデンスレベル
                 </h3>
-                <div className="space-y-1">
+                <div className="space-y-0.5">
                   {["", "高", "中", "低"].map((level) => (
                     <button
                       key={level}
                       onClick={() => setSelectedEvidence(level)}
-                      className={`block w-full text-left px-3 py-2 text-sm rounded-lg transition-colors ${
+                      className={`block w-full text-left px-3 py-1.5 text-[13px] rounded transition-colors ${
                         selectedEvidence === level
-                          ? "bg-[#f5fcfb] text-[#2aab9f] font-medium"
-                          : "text-[#8f9695] hover:bg-[#f0f2f0]"
+                          ? "bg-black text-white"
+                          : "text-[#555] hover:text-black"
                       }`}
                     >
                       {level || "すべて"}
@@ -128,20 +129,20 @@ export default function IngredientsPage() {
 
               {/* Function */}
               <div>
-                <h3 className="text-sm font-semibold text-[#354341] mb-3">
+                <h3 className="text-[11px] text-[#888] uppercase tracking-wider mb-3">
                   効果・効能
                 </h3>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5">
                   {functionTags.map((fn) => (
                     <button
                       key={fn}
                       onClick={() =>
                         setSelectedFunction(selectedFunction === fn ? "" : fn)
                       }
-                      className={`px-3 py-1 text-xs rounded-full transition-colors ${
+                      className={`px-2.5 py-1 text-[11px] rounded transition-colors ${
                         selectedFunction === fn
-                          ? "bg-[#2aab9f] text-white"
-                          : "bg-[#f0f2f0] text-[#8f9695] hover:bg-[#e5e7e5]"
+                          ? "bg-black text-white"
+                          : "border border-[#efefef] text-[#888] hover:border-black hover:text-black"
                       }`}
                     >
                       {fn}
@@ -155,7 +156,7 @@ export default function IngredientsPage() {
           {/* Results */}
           <div className="flex-1">
             <div className="flex items-center justify-between mb-4">
-              <p className="text-sm text-[#8f9695]">
+              <p className="text-[13px] text-[#888]">
                 {filtered.length}件の素材が見つかりました
               </p>
             </div>
@@ -165,36 +166,36 @@ export default function IngredientsPage() {
                 <Link
                   key={ing.id}
                   href={`/ingredients/${ing.id}`}
-                  className="group block bg-white rounded-2xl border border-[#e5e7e5] p-6 hover:shadow-lg hover:border-[#2aab9f]/30 transition-all duration-300"
+                  className="group block border border-[#efefef] rounded p-5 hover:border-black transition-colors"
                 >
                   <div className="flex items-start justify-between mb-3">
-                    <span className="text-xs px-3 py-1 bg-[#f5fcfb] text-[#2aab9f] rounded-full">
+                    <span className="text-[11px] px-2.5 py-0.5 bg-[#fafafa] text-[#888] rounded">
                       {ing.category}
                     </span>
                     <span
-                      className={`text-xs px-2 py-1 rounded-full ${
+                      className={`text-[11px] px-2 py-0.5 rounded ${
                         ing.evidenceLevel === "高"
-                          ? "bg-green-50 text-green-700"
+                          ? "bg-[#f0f7f0] text-[#2d7a2d]"
                           : ing.evidenceLevel === "中"
-                          ? "bg-yellow-50 text-yellow-700"
-                          : "bg-gray-50 text-gray-500"
+                          ? "bg-[#fdf7ed] text-[#9a7b2d]"
+                          : "bg-[#fafafa] text-[#888]"
                       }`}
                     >
-                      エビデンス: {ing.evidenceLevel}
+                      Evidence: {ing.evidenceLevel}
                     </span>
                   </div>
-                  <h3 className="font-semibold text-[#354341] group-hover:text-[#2aab9f] transition-colors mb-1">
+                  <h3 className="text-[14px] font-medium text-black group-hover:opacity-60 transition-opacity mb-1">
                     {ing.name}
                   </h3>
-                  <p className="text-xs text-[#8f9695] mb-3">{ing.nameEn}</p>
-                  <p className="text-sm text-[#8f9695] line-clamp-2 mb-4">
+                  <p className="text-[11px] text-[#aaa] mb-2">{ing.nameEn}</p>
+                  <p className="text-[13px] text-[#888] line-clamp-2 mb-3">
                     {ing.description}
                   </p>
                   <div className="flex flex-wrap gap-1.5">
                     {ing.functions.map((fn) => (
                       <span
                         key={fn}
-                        className="text-xs px-2 py-0.5 bg-[#f0f2f0] text-[#8f9695] rounded-full"
+                        className="text-[11px] px-2 py-0.5 border border-[#efefef] text-[#888] rounded"
                       >
                         {fn}
                       </span>
@@ -206,7 +207,7 @@ export default function IngredientsPage() {
 
             {filtered.length === 0 && (
               <div className="text-center py-20">
-                <p className="text-[#8f9695]">
+                <p className="text-[13px] text-[#888]">
                   条件に一致する素材が見つかりませんでした
                 </p>
                 <button
@@ -216,7 +217,7 @@ export default function IngredientsPage() {
                     setSelectedFunction("");
                     setSelectedEvidence("");
                   }}
-                  className="mt-4 px-6 py-2 text-sm text-[#2aab9f] border border-[#2aab9f] rounded-full hover:bg-[#f5fcfb] transition-colors"
+                  className="mt-4 px-5 py-2 text-[13px] text-black border border-black rounded hover:bg-black hover:text-white transition-all"
                 >
                   フィルターをリセット
                 </button>
